@@ -1,25 +1,30 @@
-import 'package:lab/sub_chapter.dart';
+import 'package:lab/paragraph.dart';
 
 import 'author.dart';
 import 'book.dart';
-import 'chapter.dart';
+import 'classes/section.dart';
+import 'image.dart';
 
 void main() {
-  Book discoTitanic = new Book("Disco Titanic");
-  Author rpGheo = new Author("Radu Pavel Gheo");
+  Book noapteBuna = Book("Noapte buna, copii!");
+  Author rpGheo = Author("Radu Pavel Gheo");
+  noapteBuna.addAuthor(rpGheo);
 
-  discoTitanic.addAuthor(rpGheo);
-  int indexChapterOne = discoTitanic.createChapter("Capitolul 1");
-  Chapter chp1 = discoTitanic.getChapter(indexChapterOne);
-  int indexSubChapterOneOne = chp1.createSubChapter("Subcapitolul 1.1");
-  SubChapter scOneOne = chp1.getSubChapter(indexSubChapterOneOne);
+  Section cap1 = Section("Capitolul 1");
+  Section cap11 = Section("Capitolul 1.1");
+  Section cap111 = Section("Capitolul 1.1.1");
+  Section cap1111 = Section("Subchapter 1.1.1.1");
 
-  scOneOne.createNewParagraph("Paragraph 1");
-  scOneOne.createNewParagraph("Paragraph 2");
-  scOneOne.createNewParagraph("Paragraph 3");
-  scOneOne.createNewImage("Image 1");
-  scOneOne.createNewParagraph("Paragraph 4");
-  scOneOne.createNewTable("Table 1");
-  scOneOne.createNewParagraph("Paragraph 5");
-  scOneOne.print();
+  noapteBuna.addContent(Paragraph("Multumesc celor care ..."));
+  noapteBuna.addContent(cap1);
+  cap1.add(Paragraph("Moto capitol"));
+  cap1.add(cap11);
+  cap11.add(Paragraph("Text from subchapter 1.1"));
+
+  cap11.add(cap111);
+  cap111.add(Paragraph("Text from subchapter 1.1.1"));
+  cap111.add(cap1111);
+  cap1111.add(Image("Image subchapter 1.1.1.1"));
+
+  noapteBuna.print();
 }

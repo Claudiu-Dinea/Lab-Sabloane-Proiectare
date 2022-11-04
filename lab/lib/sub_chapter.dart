@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'dart:core' as core;
-import 'package:lab/element.dart';
 import 'package:lab/paragraph.dart';
 import 'package:lab/image.dart';
 import 'package:lab/table.dart';
@@ -32,7 +31,7 @@ class SubChapter {
     paragraphs.forEach((element) => paragraphsName += "Paragraph: ${element.text} \n");
 
     String imagesName = "";
-    images.forEach((element) => imagesName += "Image with name: ${element.imageName} \n");
+    images.forEach((element) => imagesName += "Image with name: ${element.url} \n");
 
     String tablesTitle = "";
     tables.forEach((element) => tablesTitle += "Table with title: ${element.title} \n");

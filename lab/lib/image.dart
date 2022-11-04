@@ -1,20 +1,35 @@
 import 'dart:core';
 import 'dart:core' as core;
+import 'interfaces/element.dart';
 
-import 'package:lab/element.dart';
+class Image implements Element {
+  final String url;
 
-class Image extends Element {
-  final String imageName;
-
-  Image(this.imageName) : super();
+  Image(this.url);
 
   @override
   String toString() {
-    return 'Image{imageName: $imageName}';
+    return 'Image{imageName: $url}';
   }
 
   @override
   void print() {
-    core.print(toString());
+    core.print("Image with name: $url");
+  }
+
+  @override
+  void add(Element element) {
+    // TODO: implement add
+  }
+
+  @override
+  Element get(int index) {
+    // TODO: implement get
+    throw UnimplementedError();
+  }
+
+  @override
+  void remove(Element element) {
+    // TODO: implement remove
   }
 }

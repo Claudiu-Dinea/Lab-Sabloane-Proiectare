@@ -1,32 +1,34 @@
 import 'dart:core';
 import 'dart:core' as core;
-import 'package:lab/table_of_contents.dart';
-
+import 'package:lab/classes/section.dart';
+import 'package:lab/interfaces/element.dart';
 import 'author.dart';
-import 'chapter.dart';
 
-class Book {
+class Book extends Section {
   final String title;
-  late final Author author;
-  late final List<TableOfContents> tableOfContents = [];
-  late final List<Chapter> chapters = [];
+  List<Author> authors = [];
+  List<Element> content = [];
 
-  Book(this.title);
+  Book(this.title) : super('');
 
   void addAuthor(Author author) {
-    this.author = author;
+    authors.add(author);
   }
 
-  int createChapter(String name) {
-    chapters.add(Chapter(name));
-    return chapters.length - 1;
+  void addContent(Element element) {
+    content.add(element);
   }
 
-  Chapter getChapter(int chapterIndex) {
-    return chapters[chapterIndex];
-  }
-
+  @override
   void print() {
-    core.print(toString());
+    String bookTitle = "Book: ${this.title}\n\n";
+    String bookAuthors = "Authors:\n";
+    for (Author author in authors) {
+      bookAuthors += "Author: ${author.name}\n";
+    }
+    core.print(bookTitle + bookAuthors);
+    for (Element element in content) {
+      element.print();
+    }
   }
 }

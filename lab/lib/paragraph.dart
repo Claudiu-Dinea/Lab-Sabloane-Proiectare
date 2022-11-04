@@ -1,9 +1,8 @@
 import 'dart:core';
 import 'dart:core' as core;
+import 'interfaces/element.dart';
 
-import 'package:lab/element.dart';
-
-class Paragraph extends Element {
+class Paragraph implements Element {
   final String text;
 
   Paragraph(this.text) : super();
@@ -15,6 +14,22 @@ class Paragraph extends Element {
 
   @override
   void print() {
-    core.print(toString());
+    core.print("Paragraph: $text");
+  }
+
+  @override
+  void add(Element element) {
+    // TODO: implement add
+  }
+
+  @override
+  Element get(int index) {
+    // TODO: implement get
+    throw UnimplementedError();
+  }
+
+  @override
+  void remove(Element element) {
+    // TODO: implement remove
   }
 }
