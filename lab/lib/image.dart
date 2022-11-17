@@ -7,6 +7,17 @@ class Image implements Element {
 
   Image(this.url);
 
+  ///In flutter constructors can't be asynchronous
+  ///so for that I made a static method which calls the constructor after
+  static Future<Image> image(String url) async {
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+    } catch (exception) {
+      core.print(exception);
+    }
+    return Image(url);
+  }
+
   @override
   String toString() {
     return 'Image{imageName: $url}';

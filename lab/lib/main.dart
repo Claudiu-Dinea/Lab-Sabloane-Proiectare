@@ -5,26 +5,28 @@ import 'book.dart';
 import 'classes/section.dart';
 import 'image.dart';
 
-void main() {
-  Book noapteBuna = Book("Noapte buna, copii!");
-  Author rpGheo = Author("Radu Pavel Gheo");
-  noapteBuna.addAuthor(rpGheo);
+Future<void> main() async {
+  DateTime startTime = DateTime.now();
+  Image img1 = await Image.image("Pamela Anderson");
+  Image img2 = await Image.image("Kim Kardashian");
+  Image img3 = await Image.image("Kirby Griffin");
+  Section playboyS1 = Section("Front Cover");
+  playboyS1.add(img1);
+  Section playboyS2 = Section("Summer Girls");
+  playboyS2.add(img2);
+  playboyS2.add(img3);
+  Book playboy = Book("Playboy");
 
-  Section cap1 = Section("Capitolul 1");
-  Section cap11 = Section("Capitolul 1.1");
-  Section cap111 = Section("Capitolul 1.1.1");
-  Section cap1111 = Section("Subchapter 1.1.1.1");
-
-  noapteBuna.addContent(Paragraph("Multumesc celor care ..."));
-  noapteBuna.addContent(cap1);
-  cap1.add(Paragraph("Moto capitol"));
-  cap1.add(cap11);
-  cap11.add(Paragraph("Text from subchapter 1.1"));
-
-  cap11.add(cap111);
-  cap111.add(Paragraph("Text from subchapter 1.1.1"));
-  cap111.add(cap1111);
-  cap1111.add(Image("Image subchapter 1.1.1.1"));
-
-  noapteBuna.print();
+  playboy.addContent(playboyS1);
+  playboy.addContent(playboyS2);
+  DateTime endTime = DateTime.now();
+  print("Creation of the content took ${endTime.difference(startTime).inMilliseconds} milliseconds");
+  startTime = DateTime.now();
+  playboyS1.print();
+  endTime = DateTime.now();
+  print("Printing of the section 1 took ${endTime.difference(startTime).inMilliseconds} milliseconds");
+  startTime = DateTime.now();
+  playboyS1.print();
+  endTime = DateTime.now();
+  print("Printing again the section 1 took ${endTime.difference(startTime).inMilliseconds} milliseconds");
 }
