@@ -1,0 +1,3 @@
+class BookStatistics {
+  void printStatistics() {}
+}

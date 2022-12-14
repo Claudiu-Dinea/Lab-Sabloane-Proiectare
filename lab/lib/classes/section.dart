@@ -1,5 +1,7 @@
 import 'dart:core';
 import 'dart:core' as core;
+import 'package:lab/classes/book_statistics.dart';
+
 import '../interfaces/element.dart';
 
 class Section implements Element {
@@ -30,4 +32,6 @@ class Section implements Element {
     // TODO: implement get
     throw UnimplementedError();
   }
+
+  void accept(BookStatistics stats) {}
 }

@@ -1,11 +1,10 @@
 import 'classes/ImageProxy.dart';
-import 'classes/align_center.dart';
-import 'classes/align_left.dart';
-import 'classes/align_right.dart';
-import 'classes/book.dart';
+import 'classes/book_statistics.dart';
+import 'classes/image.dart';
 import 'classes/paragraph.dart';
 
 import 'classes/section.dart';
+import 'classes/table.dart';
 
 Future<void> main() async {
   Section cap1 = Section("Capitolul 1");
@@ -18,13 +17,12 @@ Future<void> main() async {
   Paragraph p4 = Paragraph("Paragraph 4");
   cap1.add(p4);
 
-  print("Printing without Alignment\n");
-  cap1.print();
+  cap1.add(ImageProxy("ImageOne"));
+  cap1.add(Image("ImageTwo"));
+  cap1.add(Paragraph("Some text"));
+  cap1.add(Table("Table 1"));
 
-  p1.setAlignStrategy(AlignCenter());
-  p2.setAlignStrategy(AlignRight());
-  p3.setAlignStrategy(AlignLeft());
-
-  print("Printing with Alignment\n");
-  cap1.print();
+  BookStatistics stats = BookStatistics();
+  cap1.accept(stats);
+  stats.printStatistics();
 }
