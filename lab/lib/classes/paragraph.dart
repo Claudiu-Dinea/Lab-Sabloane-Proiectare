@@ -1,9 +1,13 @@
 import 'dart:core';
 import 'dart:core' as core;
-import 'interfaces/element.dart';
+import 'package:lab/classes/align_left.dart';
+
+import '../interfaces/AlignStrategy.dart';
+import '../interfaces/element.dart';
 
 class Paragraph implements Element {
   final String text;
+  AlignStrategy alignStrategy = AlignLeft();
 
   Paragraph(this.text) : super();
 
@@ -14,7 +18,7 @@ class Paragraph implements Element {
 
   @override
   void print() {
-    core.print("Paragraph: $text");
+    alignStrategy.render(this);
   }
 
   @override
@@ -31,5 +35,9 @@ class Paragraph implements Element {
   @override
   void remove(Element element) {
     // TODO: implement remove
+  }
+
+  void setAlignStrategy(AlignStrategy newAlignStrategy) {
+    alignStrategy = newAlignStrategy;
   }
 }

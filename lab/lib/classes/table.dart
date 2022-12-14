@@ -1,6 +1,6 @@
 import 'dart:core';
 import 'dart:core' as core;
-import 'interfaces/element.dart';
+import '../interfaces/element.dart';
 
 class Table implements Element {
   final String title;

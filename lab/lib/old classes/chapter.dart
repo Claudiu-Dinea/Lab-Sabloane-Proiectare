@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'dart:core' as core;
 
-import 'package:lab/sub_chapter.dart';
+import 'package:lab/old%20classes/sub_chapter.dart';
 
 class Chapter {
   final String name;

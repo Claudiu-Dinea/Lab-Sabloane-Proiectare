@@ -1,8 +1,8 @@
 import 'dart:core';
 import 'dart:core' as core;
-import 'package:lab/paragraph.dart';
+import 'package:lab/classes/paragraph.dart';
 import 'package:lab/classes/image.dart';
-import 'package:lab/table.dart';
+import 'package:lab/classes/table.dart';
 
 class SubChapter {
   final String name;
