@@ -12,3 +12,6 @@ https://github.com/Claudiu-Dinea/Lab-Sabloane-Proiectare/tree/e60c38b4b29d390d74
 - sterge chapter, subchapter
 
 Nota 10
+
+# Nota finala propusa:
+10
